@@ -5,7 +5,9 @@ export const connectToDB = async (): Promise<boolean> => {
     if (mongoose.connections[0].readyState) {
       return true;
     }
-    await mongoose.connect("mongodb://localhost:27017/nextauth");
+    await mongoose.connect(
+      "mongodb://root:Q60NaAri6kKbdiNcbhobj5vS@hotaka.liara.cloud:34794/my-app?authSource=admin"
+    );
 
     console.log("Connect To DB Successfully :))");
 
