@@ -1,6 +1,6 @@
+import NextAuthProvider from "@/helpers/NextAuthProvider";
 import "./globals.css";
 import IranSansFont from "@/helpers/IranSansFont";
-import type { Metadata } from "next";
 
 export default function RootLayout({
   children,
@@ -12,7 +12,7 @@ export default function RootLayout({
       <body
         className={" bg-[url(./../../public/images/bg.jpeg)] bg-cover bg-black"}
       >
-        {children}
+        <NextAuthProvider>{children}</NextAuthProvider>
       </body>
     </html>
   );
