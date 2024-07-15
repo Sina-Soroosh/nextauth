@@ -51,6 +51,7 @@ const handler = NextAuth({
   session: {
     strategy: "jwt",
   },
+  secret: process.env.SECRET,
   providers,
 });
 
