@@ -3,6 +3,67 @@
 @tailwind utilities;
 
 @layer components {
+    .box {
+        @apply absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-96 p-12 box-border rounded-xl;
+        background: rgba(0, 0, 0, 0.8);
+        box-shadow: 0 15px 25px rgba(0, 0, 0, 0.5);
+    }
+
+    .box h1 {
+        @apply mb-7 p-0 text-white text-center text-xl;
+    }
+
+    .box .inputBox {
+        @apply relative;
+    }
+
+    .box .inputBox input {
+        @apply w-full p-2 text-base text-white mb-7 border-0 border-b border-b-white outline-none bg-transparent;
+    }
+
+    .box .inputBox label {
+        @apply absolute top-0 left-0 py-2 text-base text-white pointer-events-none transition-all duration-500;
+    }
+
+    .box .inputBox input:focus~label,
+    .box .inputBox input:valid~label {
+        @apply -top-4 left-0 text-xs;
+        color: #03a9f4;
+    }
+
+    .register {
+        color: #03a9f4;
+    }
+
+    .box input[type="submit"] {
+        @apply bg-transparent border-none outline-none text-white py-2 px-5 cursor-pointer rounded-md;
+        background: #03a9f4;
+    }
+
+    a {
+        @apply text-white mb-[2%];
+    }
+
+    .register-btn {
+        @apply w-full;
+    }
+
+    button a {
+        @apply text-black w-16 block;
+    }
+
+    .container {
+        @apply w-full h-full flex min-h-screen;
+    }
+
+    .main {
+        @apply w-[80%] p-8 pl-16;
+    }
+
+    .index {
+        @apply text-center pt-64;
+    }
+
     /* sidebar */
 
     .sidebar {
