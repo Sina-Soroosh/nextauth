@@ -45,17 +45,6 @@ export default function Home() {
                 </Link>
               </li>
             </>
-            {/* 
-          {isAdmin ? (
-            <li>
-              <Link href="/p-admin">
-                <span>
-                  <FaSignIn />
-                </span>
-                Panel Admin
-              </Link>
-            </li>
-          ) : null} */}
           </ul>
           <img className="wave" src="/Images/wave.svg" alt="wave" />
         </aside>
