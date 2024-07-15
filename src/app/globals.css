@@ -1,3 +1,39 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+@layer components {
+    /* sidebar */
+
+    .sidebar {
+        @apply w-[20%] min-w-52 text-2xl flex flex-col relative py-4 gap-5 min-h-screen;
+        background-color: rgb(52, 49, 49);
+    }
+
+    .sidebar-title {
+        @apply text-white pr-8 pb-4 pl-3 border-b border-white;
+    }
+
+    .sidebar-links {
+        @apply list-none flex pr-20 pl-6 flex-col mt-8 gap-5;
+    }
+
+    .sidebar-links li {
+        @apply pb-4;
+    }
+
+    .sidebar-links a {
+        @apply flex gap-4 text-xl;
+        color: rgba(255, 255, 255, 0.834);
+    }
+
+    .sidebar-links li:last-child {
+        @apply border-b-0
+    }
+
+    .wave {
+        @apply absolute bottom-0 left-0;
+    }
+
+    /* sidebar */
+}
