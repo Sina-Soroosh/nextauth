@@ -1,27 +1,19 @@
-import { IncomingMessage } from "http";
-import { getSession } from "next-auth/react";
+import { getToken } from "next-auth/jwt";
 import { NextRequest, NextResponse } from "next/server";
-import { connectToDB } from "./config/db";
-import UserModel from "./app/models/User";
 
 export async function middleware(request: NextRequest) {
   const isDashboard = request.nextUrl.pathname.includes("dashboard");
 
-  const cookies = request.headers.get("cookie");
-
-  const res = await fetch(`${request.nextUrl.origin}/api/auth/islogin`, {
-    method: "PUT",
-    headers: {
-      "Content-Type": "application/json",
-    },
-    body: JSON.stringify({ cookies }),
+  const token = await getToken({
+    req: request,
+    secret: process.env.SECRET,
   });
 
-  if (!isDashboard && res.status === 200) {
+  if (!isDashboard && token) {
     return NextResponse.redirect(new URL("/dashboard", request.url));
   }
 
-  if (isDashboard && res.status !== 200) {
+  if (isDashboard && !token) {
     return NextResponse.redirect(new URL("/signin", request.url));
   }
 
